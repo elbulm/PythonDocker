@@ -69,7 +69,7 @@ def createTable(table, tablename = "table", xlsx = False, keepJSON = False):
     table = pd.read_json(tablename+".JSON")
     table.to_excel(tablename+".xlsx", index = False)
     with open(tablename + ".JSON","w") as f:
-        f.write(json.dumps(pd.read_excel(tablename + '.xlsx').to_dict('records'))) #otherwise nans will be read as strings for some reason and everything breaks
+        f.write(json.dumps(pd.read_excel(tablename + '.xlsx').to_dict('records')))
     if not xlsx:
         keepJSON = True
         remove(tablename +".xlsx")
